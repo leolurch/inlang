@@ -39,6 +39,7 @@ import { clientSideEnv } from "@env";
 import type { SemanticColorTokens } from "../../../../../../tailwind.config.cjs";
 import { Icon } from "@src/components/Icon.jsx";
 import MaterialSymbolsLoginRounded from "~icons/material-symbols/login-rounded";
+import { tryCreateSession } from "@src/services/auth/lib/session/client.js";
 
 const [hasPushedChanges, setHasPushedChanges] = createSignal(false);
 // command-f this repo to find where the layout is called
@@ -418,6 +419,7 @@ function SignInBanner() {
         ref={signInDialog!}
         onClickOnSignInButton={() => {
           // hide the sign in dialog to increase UX when switching back to this window
+          tryCreateSession();
           signInDialog?.hide();
         }}
       />
