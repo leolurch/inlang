@@ -56,7 +56,6 @@ export const initClientSession = async () => {
   // init supertokens sesssion
   if (typeof window != "undefined" && clientSideEnv.VITE_SUPERTOKENS_IN_DEV) {
     SuperTokens.init(config);
-    await Session.attemptRefreshingSession();
   }
 };
 
